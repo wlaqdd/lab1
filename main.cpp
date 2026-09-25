@@ -1,9 +1,18 @@
-#include "func.h"
+#include "part1.h"
+#include "part2.h"
+
+#include <iostream>
+using namespace std;
 
 int main()
 {
-	srand(time(nullptr)); // корректное исп rand() (от времени системного)
+	vector<int> a{1, 2, 3, 4, 5, 1, 2, 3};
+	cout << has_duplicates(a) << '\n';
 
-
-	find_m(30000, 20000);
+	for (int i : get_duplicates(a))
+	{
+		cout << i << ' ';
+	}
+	cout << '\n';
+	cout << "\nend";
 }
