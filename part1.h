@@ -17,14 +17,14 @@ void ins_time(int n = 1)
 	cout << "N: " << n << '\n';
 	{
 		vector<int> cont;
-		auto t1 = steady_clock::now();
+		auto t1 = steady_clock::now(); // сейчас
 		for (int i{}; i < n; ++i)
 		{
 			cont.insert(cont.begin(), i);
 		}
-		auto t2 = steady_clock::now();
+		auto t2 = steady_clock::now(); // после
 		auto time = duration<double>(t2 - t1).count();
-		cout << "Vector insert to begin time: " << time << " sec." << '\n';
+		cout << "Vector insert to begin time: " << time << " sec." << '\n'; // вывод
 	}
 	{
 		vector<int> cont;

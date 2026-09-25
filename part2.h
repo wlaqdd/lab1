@@ -1,4 +1,5 @@
 #include <iostream>
+#include <chrono>
 
 #include <vector>
 #include <unordered_set>
@@ -6,6 +7,7 @@
 #include <algorithm>
 
 using namespace std;
+using namespace std::chrono;
 
 bool has_duplicates(const vector<int> &arr)
 {
@@ -106,4 +108,44 @@ unordered_set<int> better_get_duplicates(const vector<int> &arr)
         }
     }
     return dupl;
+}
+
+void test_duplicated(int n)
+{
+    vector<int> a;
+
+    for (int i{}; i < n; ++i)
+    {
+        a.push_back(rand() % 20);
+    }
+
+    cout << "N: " << n << '\n';
+    {
+        auto t1 = steady_clock::now(); // сейчас
+        has_duplicates(a);
+        auto t2 = steady_clock::now(); // после
+        auto time = duration<double>(t2 - t1).count();
+        cout << "Has duplicates time: " << time << " sec." << '\n';
+    }
+    {
+        auto t1 = steady_clock::now(); // сейчас
+        better_has_duplicates(a);
+        auto t2 = steady_clock::now(); // после
+        auto time = duration<double>(t2 - t1).count();
+        cout << "Better has duplicates time: " << time << " sec." << '\n';
+    }
+    {
+        auto t1 = steady_clock::now(); // сейчас
+        get_duplicates(a);
+        auto t2 = steady_clock::now(); // после
+        auto time = duration<double>(t2 - t1).count();
+        cout << "Get duplicates time: " << time << " sec." << '\n';
+    }
+    {
+        auto t1 = steady_clock::now(); // сейчас
+        better_get_duplicates(a);
+        auto t2 = steady_clock::now(); // после
+        auto time = duration<double>(t2 - t1).count();
+        cout << "Better get duplicates time: " << time << " sec." << "\n\n";
+    }
 }

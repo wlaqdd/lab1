@@ -1,18 +1,26 @@
-#include "part1.h"
-#include "part2.h"
+#include "part1.h" // ins_time find_m
+#include "part2.h" //
 
 #include <iostream>
 using namespace std;
 
 int main()
 {
-	vector<int> a{1, 2, 3, 4, 5, 1, 2, 3};
-	cout << has_duplicates(a) << '\n';
+	ins_time(10);
+	ins_time(100);
+	ins_time(1000);
+	ins_time(10000);
 
-	for (int i : get_duplicates(a))
-	{
-		cout << i << ' ';
-	}
-	cout << '\n';
-	cout << "\nend";
+	find_m(10, 2);
+	find_m(100, 20);
+	find_m(1000, 200);
+	find_m(10000, 2000);
+
+	test_duplicated(10);
+	test_duplicated(100);
+	test_duplicated(1000);
+	test_duplicated(10000);
+
+	cout << "Done\n";
+	return 0;
 }
